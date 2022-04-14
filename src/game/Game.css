@@ -1,0 +1,39 @@
+.inputs__container {
+    display: flex;    
+    width: 75%;
+    margin: 64px auto;    
+}
+.input__container__item {
+    flex: 1;
+}
+.display {
+    border: 2px solid white;   
+    width: 33px;
+    height: 200px;     
+    overflow: auto;
+}
+.numbers__container {
+    border: 2px solid white;
+    width: 75%;
+    height: 40vh;
+    margin: 64px auto;
+    overflow: auto;
+}
+#info__list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#numbers__list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.number {
+    margin: 5px;
+}
