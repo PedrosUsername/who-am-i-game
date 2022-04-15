@@ -34,46 +34,46 @@ function Game(prop){
             case "é par":
                 if(random % 2 === 0){
                     setDisplay(["sim, o número é par", ...display]);
-                    setPerguntas(perguntas.filter(p => p !== "é par" && p !== "é impar"));
                     setNumbers(numbers.filter(num => num % 2 === 0));
                 } else {
                     setDisplay(["o número não é par", ...display]);    
+                    setNumbers(numbers.filter(num => num % 2 === 1));                    
                     setPerguntaHP(perguntaHP - 1);                                        
-                    setPerguntas(perguntas.filter(p => p !== "é par"));
                 }
+                setPerguntas(perguntas.filter(p => p !== "é par" && p !== "é impar"));
                 break;
             case "é impar":
                 if(random % 2 === 1){
                     setDisplay(["sim, o número é impar", ...display]);
-                    setPerguntas(perguntas.filter(p => p !== "é par" && p !== "é impar"));
                     setNumbers(numbers.filter(num => num % 2 === 1));                    
                 } else {
                     setDisplay(["o número não é impar", ...display]);                    
+                    setNumbers(numbers.filter(num => num % 2 === 0));                    
                     setPerguntaHP(perguntaHP - 1);                                        
-                    setPerguntas(perguntas.filter(p => p !== "é impar"));                    
                 }
+                setPerguntas(perguntas.filter(p => p !== "é par" && p !== "é impar"));                
                 break;
             case "é primo":
                 if (ehPrimo(random)){
                     setDisplay(["sim, o número é primo", ...display]);
-                    setPerguntas(perguntas.filter(p => p !== "é primo" && p !== "não é primo"));
                     setNumbers(numbers.filter(num => ehPrimo(num)));
                 } else {
                     setDisplay(["o número não é primo", ...display]);
+                    setNumbers(numbers.filter(num => !ehPrimo(num)));
                     setPerguntaHP(perguntaHP - 1);                    
-                    setPerguntas(perguntas.filter(p => p !== "é primo"));                    
                 }
+                setPerguntas(perguntas.filter(p => p !== "é primo" && p !== "não é primo"));                
                 break;
             case "não é primo":
                 if (!ehPrimo(random)){
                     setDisplay(["sim, o número não é primo", ...display]);
-                    setPerguntas(perguntas.filter(p => p !== "é primo" && p !== "não é primo"));
                     setNumbers(numbers.filter(num => !ehPrimo(num)));
                 } else {
                     setDisplay(["o número é primo", ...display]);
+                    setNumbers(numbers.filter(num => ehPrimo(num)));                    
                     setPerguntaHP(perguntaHP - 1);
-                    setPerguntas(perguntas.filter(p => p !== "não é primo"));                    
                 }
+                setPerguntas(perguntas.filter(p => p !== "é primo" && p !== "não é primo"));
                 break;                
             case "é maior que x":
                 if (random > valorDX){
@@ -81,6 +81,7 @@ function Game(prop){
                     setNumbers(numbers.filter(num => num > valorDX));                    
                 } else {
                     setDisplay([`o número não é maior que ${valorDX}`, ...display]);                    
+                    setNumbers(numbers.filter(num => num <= valorDX));                    
                     setPerguntaHP(perguntaHP - 1);
                 }
                 break;                                                                          
@@ -90,6 +91,7 @@ function Game(prop){
                     setNumbers(numbers.filter(num => num < valorDX));                    
                 } else {
                     setDisplay([`o número não é menor que ${valorDX}`, ...display]);                    
+                    setNumbers(numbers.filter(num => num >= valorDX));                    
                     setPerguntaHP(perguntaHP - 1);                    
                 }
               break;
