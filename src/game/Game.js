@@ -112,8 +112,9 @@ function Game(prop){
             console.log("guess", guess);
             console.log("random", random);            
             if(Number(guess) === Number(random)){
+                const pontuacao = Math.floor(10000/(display.length + 1));
                 alert("Vitória");
-                setDisplay([`Correto, o número era: ${random}`]);                
+                setDisplay([`Correto, o número era: ${random}`, `pontuação: ${pontuacao}`]);                
             } else {
                 setPlayerHP(playerHP - 1);
             }
